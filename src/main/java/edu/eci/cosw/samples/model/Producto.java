@@ -3,6 +3,9 @@ package edu.eci.cosw.samples.model;
 // Generated Feb 5, 2013 5:52:11 PM by Hibernate Tools 3.4.0.CR1
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Column;
@@ -73,6 +76,8 @@ public class Producto implements java.io.Serializable {
 		this.precio = precio;
 	}
 
+	//@Fetch(FetchMode.JOIN)
+	@JsonIgnore
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "producto")        
 	public Set<DetallePedido> getDetallesPedidos() {
 		return this.almDetallesPedidos;

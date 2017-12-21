@@ -58,6 +58,7 @@ public class Despacho implements java.io.Serializable {
 		this.iddespacho = iddespacho;
 	}
 
+	@Fetch(FetchMode.JOIN)
 	@ManyToOne(fetch = FetchType.LAZY)        
 	@JoinColumn(name = "PEDIDOS_idpedido", nullable = false)
 	public Pedido getPedidos() {
@@ -68,6 +69,7 @@ public class Despacho implements java.io.Serializable {
 		this.almPedidos = almPedidos;
 	}
 
+	@Fetch(FetchMode.JOIN)
 	@ManyToOne(fetch = FetchType.LAZY)        
 	@JoinColumn(name = "VEHICULOS_placa", nullable = false)
 	public Vehiculo getVehiculo() {
@@ -78,6 +80,7 @@ public class Despacho implements java.io.Serializable {
 		this.almVehiculos = almVehiculos;
 	}
 
+	@JsonIgnore
 	@Column(name = "qrcode")
 	public Blob getQrcode() {
 		return this.qrcode;

@@ -16,9 +16,7 @@
  */
 package edu.eci.cosw.examples.productorders.services;
 
-import edu.eci.cosw.samples.model.Despacho;
-import edu.eci.cosw.samples.model.Pedido;
-import edu.eci.cosw.samples.model.Producto;
+import edu.eci.cosw.samples.model.*;
 import java.util.List;
 
 /**
@@ -26,13 +24,16 @@ import java.util.List;
  * @author hcadavid
  */
 public interface ApplicationServices {
-    
+
     public List<Pedido> getAllOrders() throws ServicesException;
+
+    public Pedido orderById(Integer id) throws ServicesException;
     
-    public Pedido orderById(Integer id) throws ServicesException;;
+    public List<Producto> getAllProducts() throws ServicesException;
     
-    public List<Producto> getAllProducts() throws ServicesException;;
-    
-    public Despacho dispatchByID(Integer id) throws ServicesException;;
-    
+    public Despacho dispatchByID(Integer id) throws ServicesException;
+
+    public List<Vehiculo> getVehicles(int idProducto) throws ServicesException;
+
+    public List<Cliente> getClientes(long value) throws ServicesException;
 }

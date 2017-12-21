@@ -16,12 +16,16 @@
  */
 package edu.eci.cosw.examples.productorders.services;
 
+import edu.eci.cosw.examples.productorders.repositories.ClientsRepository;
 import edu.eci.cosw.examples.productorders.repositories.DispatchRepository;
 import edu.eci.cosw.examples.productorders.repositories.OrdersRepository;
 import edu.eci.cosw.examples.productorders.repositories.ProductsRepository;
+import edu.eci.cosw.examples.productorders.repositories.VehiclesRepository;
+import edu.eci.cosw.samples.model.Cliente;
 import edu.eci.cosw.samples.model.Despacho;
 import edu.eci.cosw.samples.model.Pedido;
 import edu.eci.cosw.samples.model.Producto;
+import edu.eci.cosw.samples.model.Vehiculo;
 import java.util.LinkedList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,38 +36,52 @@ import org.springframework.stereotype.Service;
  * @author hcadavid
  */
 @Service
-public class ApplicationServicesImpl implements ApplicationServices{
-   
+public class ApplicationServicesImpl implements ApplicationServices {
+
     @Autowired
     private OrdersRepository ordrepo;
 
     @Autowired
     private ProductsRepository prorepo;
-    
+
     @Autowired
     private DispatchRepository disprepo;
-    
+
+    @Autowired
+    private ClientsRepository clientsrepo;
+
+    @Autowired
+    private VehiclesRepository vehicrepo;
+
     @Override
-    public List<Pedido> getAllOrders() throws ServicesException{
-        List<Pedido> p=ordrepo.findAll();
+    public List<Pedido> getAllOrders() throws ServicesException {
+        List<Pedido> p = ordrepo.findAll();
         return p;
     }
 
     @Override
-    public List<Producto> getAllProducts() throws ServicesException{
-        return  prorepo.findAll();
+    public List<Producto> getAllProducts() throws ServicesException {
+        return prorepo.findAll();
     }
 
     @Override
-    public Pedido orderById(Integer id) throws ServicesException{
+    public Pedido orderById(Integer id) throws ServicesException {
         return ordrepo.findOne(id);
     }
-    
-    
+
     @Override
-    public Despacho dispatchByID(Integer id) throws ServicesException{
+    public Despacho dispatchByID(Integer id) throws ServicesException {
         return disprepo.findOne(id);
     }
-    
-    
+
+    @Override
+    public List<Vehiculo> getVehicles(int idProducto) throws ServicesException {
+        return vehicrepo.getVehiculos(idProducto);
+    }
+
+    @Override
+    public List<Cliente> getClientes(long value) throws ServicesException {
+        return clientsrepo.getCLientes(value);
+    }
+
 }
