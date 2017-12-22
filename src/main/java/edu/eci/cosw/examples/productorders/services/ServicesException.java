@@ -18,7 +18,7 @@ package edu.eci.cosw.examples.productorders.services;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 public class ServicesException extends Exception{
 

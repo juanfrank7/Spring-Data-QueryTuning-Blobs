@@ -21,7 +21,7 @@ import java.util.List;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 public interface ApplicationServices {
 
@@ -36,4 +36,8 @@ public interface ApplicationServices {
     public List<Vehiculo> getVehicles(int idProducto) throws ServicesException;
 
     public List<Cliente> getClientes(long value) throws ServicesException;
+	
+	public void addDispatch(Despacho dispatch) throws ServicesException;
+	
+	public Vehiculo vehicleById(String id) throws ServicesException;
 }

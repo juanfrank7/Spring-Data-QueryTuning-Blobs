@@ -21,7 +21,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 public interface OrdersRepository extends JpaRepository<Pedido, Integer>{
     

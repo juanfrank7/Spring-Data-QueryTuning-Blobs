@@ -45,7 +45,7 @@ import edu.eci.cosw.examples.productorders.services.ServicesException;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 @RestController
 @RequestMapping(path = "/orders")

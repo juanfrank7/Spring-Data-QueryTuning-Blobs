@@ -32,7 +32,7 @@ import org.springframework.http.HttpStatus;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 @RestController
 @RequestMapping(path = "/products")

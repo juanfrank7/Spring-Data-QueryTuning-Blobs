@@ -33,7 +33,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author hcadavid
+ * @author juanfrank
  */
 @Service
 public class ApplicationServicesImpl implements ApplicationServices {
@@ -82,6 +82,16 @@ public class ApplicationServicesImpl implements ApplicationServices {
     @Override
     public List<Cliente> getClientes(long value) throws ServicesException {
         return clientsrepo.getCLientes(value);
+    }
+	
+	@Override
+    public void addDispatch(Despacho dispatch) throws ServicesException {
+         disprepo.saveAndFlush(dispatch);
+    }
+	
+	@Override
+    public Vehiculo vehicleById(String id) throws ServicesException {
+        return vehicrepo.findOne(id);
     }
 
 }

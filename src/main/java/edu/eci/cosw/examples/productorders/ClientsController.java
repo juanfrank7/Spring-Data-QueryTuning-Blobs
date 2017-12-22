@@ -22,7 +22,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author 2088344
+ * @author juanfrank
  */
 @RestController
 @RequestMapping(path = "/clients")
